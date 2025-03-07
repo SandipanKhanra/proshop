@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 // Import the .env file
 dotenv.config();
 import productRoutes from "./routes/productRoutes.js";
@@ -25,6 +27,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
   // Set static folder
   app.use(express.static(path.join(__dirname, "/frontend/build")));
 
