@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import path from "path";
 // Import the .env file
 dotenv.config();
 import productRoutes from "./routes/productRoutes.js";
