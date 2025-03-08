@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FormContainer from "../components/FormContainer";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { saveShippingAddress } from "../slices/cartSlice";
@@ -25,6 +25,7 @@ const ShippingScreen = () => {
   };
   return (
     <FormContainer>
+      <h1>Shipping</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address" className="my-2">
           <Form.Label>Address</Form.Label>
@@ -62,6 +63,9 @@ const ShippingScreen = () => {
             onChange={(e) => setCountry(e.target.vaue)}
           ></Form.Control>
         </Form.Group>
+        <Button type="submit" onClick={submitHandler}>
+          Continue
+        </Button>
       </Form>
     </FormContainer>
   );
